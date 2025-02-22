@@ -53,9 +53,9 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // Swagger documentation
-app.use('/api-docs', swaggerUi.serve);
+app.use('/', swaggerUi.serve);
 app.get(
-  '/api-docs',
+  '/',
   swaggerUi.setup(specs, {
     explorer: true,
     customCss: '.swagger-ui .topbar { display: none }',
@@ -75,7 +75,7 @@ app.use(errorHandler);
 app.listen(config.port, () => {
   logger.info(`Server running on port ${config.port}`);
   logger.info(
-    `API Documentation available at http://localhost:${config.port}/api-docs`
+    `API Documentation available at http://localhost:${config.port}/`
   );
 });
 
